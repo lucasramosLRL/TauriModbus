@@ -4,6 +4,10 @@
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn list_serial_ports() -> String {
+    let ports = serialport::available_ports().expect("No ports found!");
+    for p in ports {
+      println!("{}", p.port_name);
+    }
     return "Isso é realmente um teste".into();
 }
 
