@@ -3,17 +3,19 @@ import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
 
-const func = async (setJson) => { 
-  setJson(await invoke('list_serial_ports'));
+const func = async (setPortsList) => { 
+  setPortsList(await invoke('list_serial_ports'));
 }
 
 function App() {
-  const [json, setJson] = useState();
+  const [portsList, setPortsList] = useState("");
 
   return (
     <div className="container">
-      <div>{json}</div>  
-      <button onClick={() => func(setJson)}>Click</button>
+      <button onClick={() => func(setPortsList)}>List serial ports</button>
+      <select>
+        {portsList.length > 0 && portsList.map( port => <option key={port}>{port}</option>)} 
+      </select>  
     </div>
   );
 }

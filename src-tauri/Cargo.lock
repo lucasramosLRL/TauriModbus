@@ -29,10 +29,10 @@ version = "1.0.0"
 dependencies = [
  "serde",
  "serde_json",
- "serialport",
  "tauri",
  "tauri-build",
  "tokio-modbus",
+ "tokio-serial",
 ]
 
 [[package]]
@@ -1462,26 +1462,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b4668fb0ea861c1df094127ac5f1da3409a82116a4ba74fca2e58ef927159bb3"
 
 [[package]]
-name = "libudev"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "78b324152da65df7bb95acfcaab55e3097ceaab02fb19b228a9eb74d55f135e0"
-dependencies = [
- "libc",
- "libudev-sys",
-]
-
-[[package]]
-name = "libudev-sys"
-version = "0.1.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c8469b4a23b962c1396b9b451dda50ef5b283e8dd309d69033475fa9b334324"
-dependencies = [
- "libc",
- "pkg-config",
-]
-
-[[package]]
 name = "line-wrap"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2481,7 +2461,6 @@ dependencies = [
  "IOKit-sys",
  "bitflags 1.3.2",
  "cfg-if",
- "libudev",
  "mach2",
  "nix",
  "regex",
@@ -3054,19 +3033,7 @@ dependencies = [
  "num_cpus",
  "pin-project-lite",
  "socket2",
- "tokio-macros",
  "windows-sys 0.48.0",
-]
-
-[[package]]
-name = "tokio-macros"
-version = "2.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "630bdcf245f78637c13ec01ffae6187cca34625e8c63150d424b59e55af2675e"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.29",
 ]
 
 [[package]]
@@ -3078,13 +3045,9 @@ dependencies = [
  "async-trait",
  "byteorder",
  "bytes",
- "futures",
- "futures-util",
  "log",
  "smallvec",
- "socket2",
  "tokio",
- "tokio-serial",
  "tokio-util",
 ]
 
